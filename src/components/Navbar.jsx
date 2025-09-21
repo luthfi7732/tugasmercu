@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Menu, X, BookOpen, Users, Settings } from "lucide-react";
+import { Menu, X, BookOpen, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
@@ -11,7 +11,6 @@ const Navbar = () => {
   const navItems = [
     { path: "/", label: "Tugas", icon: BookOpen },
     { path: "/groups", label: "Kelompok", icon: Users },
-    { path: "/admin", label: "Admin", icon: Settings },
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -53,16 +52,6 @@ const Navbar = () => {
                 </Link>
               );
             })}
-            <Button
-              onClick={() => {
-                if (window.netlifyIdentity) {
-                  window.netlifyIdentity.open();
-                }
-              }}
-              className="bg-green-600 hover:bg-green-700 text-white"
-            >
-              Login
-            </Button>
           </div>
 
           {/* Mobile menu button */}

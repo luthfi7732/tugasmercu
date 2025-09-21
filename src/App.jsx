@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import Navbar from "@/components/Navbar";
 import Home from "@/pages/Home";
 import Groups from "@/pages/Groups";
-import Admin from "@/pages/Admin";
+
 import TaskDetail from "@/pages/TaskDetail";
 
 function App() {
@@ -24,7 +24,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/groups" element={<Groups />} />
-          <Route path="/admin" element={<Admin />} />
           <Route path="/task/:id" element={<TaskDetail />} />
         </Routes>
       </main>
