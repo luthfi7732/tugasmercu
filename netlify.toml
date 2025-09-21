@@ -15,7 +15,7 @@
 # Redirect for config.yml
 [[redirects]]
   from = "/admin/config.yml"
-  to = "/config-fixed.yml"
+  to = "/config-netlify.yml"
   status = 200
 
 [build.environment]
