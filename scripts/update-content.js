@@ -13,10 +13,13 @@ const __dirname = path.dirname(__filename);
  */
 
 const CONTENT_DIR = path.join(__dirname, '../content');
+const PUBLIC_DIR = path.join(__dirname, '../public');
 const TASKS_DIR = path.join(CONTENT_DIR, 'tasks');
 const GROUPS_DIR = path.join(CONTENT_DIR, 'groups');
 const TASKS_JSON = path.join(CONTENT_DIR, 'tasks.json');
 const GROUPS_JSON = path.join(CONTENT_DIR, 'groups.json');
+const PUBLIC_TASKS_JSON = path.join(PUBLIC_DIR, 'tasks.json');
+const PUBLIC_GROUPS_JSON = path.join(PUBLIC_DIR, 'groups.json');
 
 function readJSONFile(filePath) {
   try {
@@ -34,6 +37,17 @@ function writeJSONFile(filePath, data) {
     console.log(`✅ Updated ${path.basename(filePath)}`);
   } catch (error) {
     console.error(`Error writing ${filePath}:`, error.message);
+  }
+}
+
+function copyToPublic(sourcePath, destPath) {
+  try {
+    if (fs.existsSync(sourcePath)) {
+      fs.copyFileSync(sourcePath, destPath);
+      console.log(`✅ Copied ${path.basename(sourcePath)} to public directory`);
+    }
+  } catch (error) {
+    console.error(`Error copying ${sourcePath} to ${destPath}:`, error.message);
   }
 }
 
@@ -64,6 +78,7 @@ function updateTasksJSON() {
   tasks.sort((a, b) => new Date(b.date) - new Date(a.date));
 
   writeJSONFile(TASKS_JSON, tasks);
+  copyToPublic(TASKS_JSON, PUBLIC_TASKS_JSON);
 }
 
 function updateGroupsJSON() {
@@ -93,6 +108,7 @@ function updateGroupsJSON() {
   groups.sort((a, b) => a.subject.localeCompare(b.subject));
 
   writeJSONFile(GROUPS_JSON, groups);
+  copyToPublic(GROUPS_JSON, PUBLIC_GROUPS_JSON);
 }
 
 function updateAllContent() {

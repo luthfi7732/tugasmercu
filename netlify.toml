@@ -1,6 +1,6 @@
 [build]
   publish = "dist"
-  command = "npm run build"
+  command = "npm run cms:build"
 
 [build.environment]
   NODE_VERSION = "18"
@@ -23,7 +23,7 @@
 # Redirects for SPA and admin
 [[redirects]]
   from = "/admin/*"
-  to = "/admin/index.html"
+  to = "/admin/index-fixed.html"
   status = 200
 
 [[redirects]]
