@@ -36,15 +36,11 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Nama Kelompok", name: "title", widget: "string", required: true}
-      - {label: "Deskripsi", name: "description", widget: "text", required: true}
-      - {label: "Mata Kuliah", name: "course", widget: "string", required: true}
-      - {label: "Anggota", name: "members", widget: "list", field: {label: "Anggota", name: "member", widget: "string"}, required: true}
-      - {label: "Leader", name: "leader", widget: "string", required: true}
-      - {label: "Status", name: "status", widget: "select", options: ["Active", "Inactive", "Completed"], default: "Active"}
-      - {label: "Tanggal Dibuat", name: "created_date", widget: "datetime"}
-      - {label: "Progress", name: "progress", widget: "number", min: 0, max: 100, default: 0}
-      - {label: "Catatan", name: "notes", widget: "text"}
+      - {label: "Nama Mata Kuliah", name: "course", widget: "string", required: true}
+      - {label: "Nama Dosen", name: "lecturer", widget: "string", required: true}
+      - {label: "Nomor Ruangan", name: "room", widget: "string", required: true}
+      - {label: "Link Google Drive", name: "drive_link", widget: "string", required: true}
+      - {label: "Link Grup WhatsApp", name: "whatsapp_link", widget: "string", required: true}
 
   - name: "pages"
     label: "Halaman"
