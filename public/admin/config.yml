@@ -13,17 +13,18 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Judul", name: "title", widget: "string", required: true}
+      - {label: "Judul Tugas", name: "title", widget: "string", required: true}
+      - {label: "Mata Kuliah", name: "subject", widget: "string", required: true}
+      - {label: "Ruangan", name: "room", widget: "string", required: true}
+      - {label: "Tanggal Diberikan", name: "date", widget: "date", required: true}
+      - {label: "Deadline", name: "deadline", widget: "date", required: true}
+      - {label: "Dosen Pengampu", name: "lecturer", widget: "string", required: true}
+      - {label: "Tipe Tugas", name: "type", widget: "select", options: ["Individu", "Kelompok"], default: "Individu"}
       - {label: "Deskripsi", name: "description", widget: "text", required: true}
-      - {label: "Mata Kuliah", name: "course", widget: "string", required: true}
-      - {label: "Tipe", name: "type", widget: "select", options: ["Individual", "Group"], default: "Individual"}
-      - {label: "Deadline", name: "deadline", widget: "datetime", required: true}
-      - {label: "Status", name: "status", widget: "select", options: ["Open", "In Progress", "Completed", "Cancelled"], default: "Open"}
-      - {label: "Prioritas", name: "priority", widget: "select", options: ["Low", "Medium", "High", "Urgent"], default: "Medium"}
-      - {label: "Tags", name: "tags", widget: "list", field: {label: "Tag", name: "tag", widget: "string"}}
-      - {label: "File Lampiran", name: "attachments", widget: "list", field: {label: "File", name: "file", widget: "file"}}
-      - {label: "Link Referensi", name: "references", widget: "list", field: {label: "Link", name: "link", widget: "string"}}
-      - {label: "Catatan", name: "notes", widget: "text"}
+      - {label: "Link Tugas", name: "link", widget: "string"}
+      - {label: "Ketua Kelas", name: "classLeader", widget: "string", required: true}
+      - {label: "WhatsApp", name: "whatsapp", widget: "string", required: true}
+      - {label: "ID", name: "id", widget: "number", required: true}
 
   - name: "groups"
     label: "Kelompok"
@@ -33,14 +34,12 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Nama Kelompok", name: "title", widget: "string", required: true}
-      - {label: "Deskripsi", name: "description", widget: "text", required: true}
-      - {label: "Mata Kuliah", name: "course", widget: "string", required: true}
-      - {label: "Anggota", name: "members", widget: "list", field: {label: "Anggota", name: "member", widget: "string"}, required: true}
-      - {label: "Leader", name: "leader", widget: "string", required: true}
-      - {label: "Status", name: "status", widget: "select", options: ["Active", "Inactive", "Completed"], default: "Active"}
-      - {label: "Tanggal Dibuat", name: "created_date", widget: "datetime"}
-      - {label: "Progress", name: "progress", widget: "number", min: 0, max: 100, default: 0}
-      - {label: "Catatan", name: "notes", widget: "text"}
+      - {label: "Mata Kuliah", name: "subject", widget: "string", required: true}
+      - {label: "Dosen", name: "lecturer", widget: "string", required: true}
+      - {label: "Ruangan", name: "room", widget: "string", required: true}
+      - {label: "Link Grup WhatsApp", name: "whatsappGroup", widget: "string", required: true}
+      - {label: "Link Google Drive", name: "driveLink", widget: "string", required: true}
+      - {label: "ID", name: "id", widget: "number", required: true}
 
   - name: "pages"
     label: "Halaman"

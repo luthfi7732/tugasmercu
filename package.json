@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "node tools/generate-content.js && vite build",
+    "build": "node scripts/update-content.js && vite build",
     "preview": "vite preview",
     "update-content": "node scripts/update-content.js",
     "cms:dev": "node tools/generate-content.js && vite",

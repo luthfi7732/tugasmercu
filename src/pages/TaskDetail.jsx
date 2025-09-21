@@ -19,12 +19,17 @@ const TaskDetail = () => {
   const [task, setTask] = useState(null);
 
   useEffect(() => {
-    const savedTasks = localStorage.getItem("managementTasks");
-    if (savedTasks) {
-      const tasks = JSON.parse(savedTasks);
-      const foundTask = tasks.find((t) => t.id === parseInt(id));
-      setTask(foundTask);
-    }
+    // Fetch tasks from CMS content files
+    fetch('/content/tasks.json')
+      .then((res) => res.json())
+      .then((data) => {
+        const foundTask = data.find((t) => t.id === parseInt(id));
+        setTask(foundTask);
+      })
+      .catch((error) => {
+        console.error('Error fetching task:', error);
+        setTask(null);
+      });
   }, [id]);
 
   if (!task) {
