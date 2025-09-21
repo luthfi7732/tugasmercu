@@ -15,7 +15,7 @@
 # Redirect for config.yml
 [[redirects]]
   from = "/admin/config.yml"
-  to = "/config-simple.yml"
+  to = "/admin/config.yml"
   status = 200
 
 [build.environment]
