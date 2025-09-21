@@ -10,6 +10,6 @@ description: Meringkas Jurnal akuntasi yang ditemukan kedalam bentuk word ukuran
   A4 sebanyak 1 halaman dan dikirim melalui email stundent
 link: "-"
 classLeader: "Nova Indriani "
-whatsapp: "085697953497"
+whatsapp: "+6285697953497"
 id: 1
 ---
