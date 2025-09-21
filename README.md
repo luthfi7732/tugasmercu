@@ -123,8 +123,8 @@ The build process automatically:
 4. Builds the React application
 
 ### Auto-Deploy
-- **Vercel**: Auto-deploy on push to master
-- **Netlify**: Auto-deploy on push to master
+- **Vercel**: Auto-deploy on push to main
+- **Netlify**: Auto-deploy on push to main
 - **GitHub Pages**: Manual trigger via Actions
 
 ## 📱 Features

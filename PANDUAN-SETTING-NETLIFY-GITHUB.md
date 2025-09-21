@@ -1,4 +1,4 @@
-# 📋 PANDUAN LENGKAP SETTING NETLIFY & GITHUB
+ n# 📋 PANDUAN LENGKAP SETTING NETLIFY & GITHUB
 
 Panduan ini mencakup semua setting yang diperlukan untuk menjalankan website dengan Netlify CMS.
 
@@ -13,7 +13,7 @@ Panduan ini mencakup semua setting yang diperlukan untuk menjalankan website den
 4. Pastikan repository **TIDAK** di-private (harus public)
 
 ### **1.2 Branch Settings**
-- **Default branch**: `master` ✅
+- **Default branch**: `main` ✅
 - **Protected branches**: Tidak perlu setting khusus
 
 ---
@@ -27,7 +27,7 @@ Panduan ini mencakup semua setting yang diperlukan untuk menjalankan website den
 
 ### **2.2 Repository Connection**
 1. Buka **https://app.netlify.com/sites/mercutugas/settings/deploys**
-2. **Branch to deploy**: `master` ✅
+2. **Branch to deploy**: `main` ✅
 3. **Repository**: `Luthfiiiiiiau/mercutugas` ✅
 
 ---
@@ -66,7 +66,7 @@ Panduan ini mencakup semua setting yang diperlukan untuk menjalankan website den
 2. Scroll ke **"Services"**
 3. Klik **"Enable Git Gateway"**
 4. **Repository**: `Luthfiiiiiiau/mercutugas`
-5. **Branch**: `master`
+5. **Branch**: `main`
 6. **Deploy settings**: (default)
 7. Klik **"Save"**
 
@@ -136,7 +136,7 @@ Pastikan file-file ini ada di repository:
 **Solusi**:
 1. Pastikan Identity sudah di-enable
 2. Pastikan Git Gateway sudah di-enable
-3. Pastikan branch `master` sudah benar
+3. Pastikan branch `main` sudah benar
 4. Trigger redeploy manual
 
 ### **8.2 Error "Build failed"**
@@ -165,7 +165,7 @@ Pastikan file-file ini ada di repository:
 
 ### **GitHub ✅**
 - [ ] Repository public
-- [ ] Branch master default
+- [ ] Branch main default
 - [ ] Latest commit pushed
 
 ### **Netlify ✅**
