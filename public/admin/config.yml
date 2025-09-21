@@ -2,18 +2,15 @@ backend:
   name: git-gateway
   branch: master
 
-media_folder: static/uploads
-public_folder: /uploads
+media_folder: "static/uploads"
+public_folder: "/uploads"
 
-# Site settings
 site_url: https://mercutugas.netlify.app
 display_url: https://mercutugas.netlify.app
 logo_url: https://mercutugas.netlify.app/logo.png
 
-# Editorial workflow
 publish_mode: editorial_workflow
 
-# Collections
 collections:
   - name: "tasks"
     label: "📝 Tugas & Assignment"
@@ -83,48 +80,3 @@ collections:
           required: true,
           hint: "URL grup WhatsApp mata kuliah"
         }
-
-  - name: "pages"
-    label: "📄 Halaman Statis"
-    files:
-      - file: "content/tasks.json"
-        label: "Daftar Tugas"
-        name: "tasks_list"
-        fields:
-          - {
-              label: "Daftar Tugas",
-              name: "tasks",
-              widget: "list",
-              fields:
-                [
-                  {label: "Judul", name: "title", widget: "string"},
-                  {label: "Mata Kuliah", name: "subject", widget: "string"},
-                  {label: "Ruangan", name: "room", widget: "string"},
-                  {label: "Tanggal", name: "date", widget: "date"},
-                  {label: "Deadline", name: "deadline", widget: "date"},
-                  {label: "Dosen", name: "lecturer", widget: "string"},
-                  {label: "Tipe", name: "type", widget: "select", options: ["Individu", "Kelompok"]},
-                  {label: "Deskripsi", name: "description", widget: "text"},
-                  {label: "Link", name: "link", widget: "string"},
-                  {label: "Ketua Kelas", name: "classLeader", widget: "string"},
-                  {label: "WhatsApp", name: "whatsapp", widget: "string"}
-                ]
-            }
-
-      - file: "content/groups.json"
-        label: "Daftar Kelompok"
-        name: "groups_list"
-        fields:
-          - {
-              label: "Daftar Kelompok",
-              name: "groups",
-              widget: "list",
-              fields:
-                [
-                  {label: "Mata Kuliah", name: "subject", widget: "string"},
-                  {label: "Dosen", name: "lecturer", widget: "string"},
-                  {label: "Ruangan", name: "room", widget: "string"},
-                  {label: "Drive Link", name: "driveLink", widget: "string"},
-                  {label: "WhatsApp Group", name: "whatsappGroup", widget: "string"}
-                ]
-            }

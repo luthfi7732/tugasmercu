@@ -1,129 +1,25 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"/>
-  <meta name="theme-color" content="#000000"/>
-  <meta name="robots" content="noindex, nofollow"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
   <title>Content Manager</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
   </style>
 </head>
 <body>
-  <div id="nc-root"></div>
+  <!-- Include the script that builds the page and powers Netlify CMS -->
   <script src="https://unpkg.com/netlify-cms-app@2.15.72/dist/netlify-cms-app.js"></script>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script>
-    // Initialize Netlify CMS
-    if (window.netlifyCms) {
-      window.netlifyCms.init({
-        config: {
-          backend: {
-            name: 'git-gateway',
-            branch: 'master'
-          },
-          media_folder: 'static/uploads',
-          public_folder: '/uploads',
-          site_url: window.location.origin,
-          display_url: window.location.origin,
-          logo_url: `${window.location.origin}/logo.png`,
-          publish_mode: 'editorial_workflow',
-          collections: [
-            {
-              name: "tasks",
-              label: "📝 Tugas & Assignment",
-              label_singular: "Tugas",
-              description: "Kelola tugas individu dan kelompok untuk mahasiswa",
-              folder: "content/tasks",
-              create: true,
-              slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
-              format: "json",
-              preview_path: "tugas/{{slug}}",
-              fields: [
-                {label: "Judul Tugas", name: "title", widget: "string", required: true},
-                {label: "Mata Kuliah", name: "subject", widget: "string", required: true},
-                {label: "Ruangan", name: "room", widget: "string", required: true},
-                {label: "Tanggal Diberikan", name: "date", widget: "date", required: true, date_format: "YYYY-MM-DD"},
-                {label: "Deadline", name: "deadline", widget: "date", required: true, date_format: "YYYY-MM-DD"},
-                {label: "Dosen Pengampu", name: "lecturer", widget: "string", required: true},
-                {
-                  label: "Tipe Tugas",
-                  name: "type",
-                  widget: "select",
-                  options: ["Individu", "Kelompok"],
-                  required: true,
-                  default: "Individu"
-                },
-                {label: "Deskripsi", name: "description", widget: "text", required: true},
-                {
-                  label: "Link Google Classroom",
-                  name: "link",
-                  widget: "string",
-                  required: false,
-                  hint: "Opsional - URL Google Classroom atau Google Drive"
-                },
-                {label: "Ketua Kelas", name: "classLeader", widget: "string", required: true},
-                {
-                  label: "Nomor WhatsApp",
-                  name: "whatsapp",
-                  widget: "string",
-                  required: true,
-                  hint: "Format: 08xxxxxxxxxx"
-                }
-              ]
-            },
-            {
-              name: "groups",
-              label: "👥 Kelompok Mata Kuliah",
-              label_singular: "Kelompok",
-              description: "Kelola informasi kelompok untuk setiap mata kuliah",
-              folder: "content/groups",
-              create: true,
-              slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
-              format: "json",
-              preview_path: "kelompok/{{slug}}",
-              fields: [
-                {label: "Mata Kuliah", name: "subject", widget: "string", required: true},
-                {label: "Dosen Pengampu", name: "lecturer", widget: "string", required: true},
-                {label: "Ruangan", name: "room", widget: "string", required: true},
-                {
-                  label: "Link Google Drive",
-                  name: "driveLink",
-                  widget: "string",
-                  required: true,
-                  hint: "URL folder Google Drive kelompok"
-                },
-                {
-                  label: "Link Grup WhatsApp",
-                  name: "whatsappGroup",
-                  widget: "string",
-                  required: true,
-                  hint: "URL grup WhatsApp mata kuliah"
-                }
-              ]
-            }
-          ]
-        }
-      });
-    }
-
-    // Initialize Netlify Identity
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on('init', user => {
-        if (!user) {
-          window.netlifyIdentity.on('login', () => {
-            document.location.href = '/admin/';
-          });
-        }
-      });
-    }
-  </script>
 </body>
 </html>

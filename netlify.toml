@@ -5,7 +5,7 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# Netlify Identity
+# Netlify Identity and Git Gateway
 [build.processing]
   skip_processing = false
 
@@ -49,3 +49,14 @@
 
 [context.branch-deploy.environment]
   NODE_ENV = "development"
+
+# Git Gateway settings
+[[redirects]]
+  from = "/.netlify/git/*"
+  to = "https://api.github.com/repos/Luthfiiiiiiau/mercutugas/git/:splat"
+  status = 200
+  headers = {Authorization = "Bearer YOUR_GITHUB_TOKEN"}
+
+# Netlify Functions (if needed)
+[functions]
+  directory = "netlify/functions"
