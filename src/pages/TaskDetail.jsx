@@ -19,15 +19,16 @@ const TaskDetail = () => {
   const [task, setTask] = useState(null);
 
   useEffect(() => {
-    // Fetch tasks from CMS content files
-    fetch('/content/tasks.json')
+    console.log("Fetching task with id:", id);
+    fetch("/content/tasks.json")
       .then((res) => res.json())
       .then((data) => {
-        const foundTask = data.find((t) => t.id === parseInt(id));
+        const foundTask = data.find((t) => t.id === Number(id));
+        console.log("Found task:", foundTask);
         setTask(foundTask);
       })
       .catch((error) => {
-        console.error('Error fetching task:', error);
+        console.error("Error fetching task:", error);
         setTask(null);
       });
   }, [id]);
