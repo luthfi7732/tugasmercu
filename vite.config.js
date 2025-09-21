@@ -12,6 +12,10 @@ export default defineConfig({
         {
           src: 'public/admin/**/*',
           dest: 'admin'
+        },
+        {
+          src: 'content/**/*',
+          dest: 'content'
         }
       ]
     })
@@ -21,4 +25,11 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  publicDir: 'public',
+  server: {
+    fs: {
+      // Allow serving files from content directory
+      allow: ['..']
+    }
+  }
 })

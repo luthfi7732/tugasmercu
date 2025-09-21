@@ -5,8 +5,11 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "node scripts/update-content.js && vite build",
+    "preview": "vite preview",
+    "update-content": "node scripts/update-content.js",
+    "cms:dev": "node scripts/update-content.js && vite",
+    "cms:build": "node scripts/update-content.js && vite build"
   },
   "dependencies": {
     "@radix-ui/react-alert-dialog": "^1.0.5",
@@ -47,6 +50,6 @@
     "eslint": "^8.57.1",
     "eslint-config-react-app": "^7.0.1",
     "terser": "^5.39.0",
-    "vite-plugin-static-copy": "^3.1.2"
+    "vite-plugin-static-copy": "^0.17.1"
   }
 }
