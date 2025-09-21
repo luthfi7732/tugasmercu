@@ -1,0 +1,60 @@
+backend:
+  name: git-gateway
+  branch: master
+  repo: Luthfiiiiiiau/mercutugas
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "tasks"
+    label: "Tugas"
+    label_singular: "Tugas"
+    folder: "content/tasks"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Judul", name: "title", widget: "string", required: true}
+      - {label: "Deskripsi", name: "description", widget: "text", required: true}
+      - {label: "Mata Kuliah", name: "course", widget: "string", required: true}
+      - {label: "Tipe", name: "type", widget: "select", options: ["Individual", "Group"], default: "Individual"}
+      - {label: "Deadline", name: "deadline", widget: "datetime", required: true}
+      - {label: "Status", name: "status", widget: "select", options: ["Open", "In Progress", "Completed", "Cancelled"], default: "Open"}
+      - {label: "Prioritas", name: "priority", widget: "select", options: ["Low", "Medium", "High", "Urgent"], default: "Medium"}
+      - {label: "Tags", name: "tags", widget: "list", field: {label: "Tag", name: "tag", widget: "string"}}
+      - {label: "File Lampiran", name: "attachments", widget: "list", field: {label: "File", name: "file", widget: "file"}}
+      - {label: "Link Referensi", name: "references", widget: "list", field: {label: "Link", name: "link", widget: "string"}}
+      - {label: "Catatan", name: "notes", widget: "text"}
+
+  - name: "groups"
+    label: "Kelompok"
+    label_singular: "Kelompok"
+    folder: "content/groups"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Nama Kelompok", name: "title", widget: "string", required: true}
+      - {label: "Deskripsi", name: "description", widget: "text", required: true}
+      - {label: "Mata Kuliah", name: "course", widget: "string", required: true}
+      - {label: "Anggota", name: "members", widget: "list", field: {label: "Anggota", name: "member", widget: "string"}, required: true}
+      - {label: "Leader", name: "leader", widget: "string", required: true}
+      - {label: "Status", name: "status", widget: "select", options: ["Active", "Inactive", "Completed"], default: "Active"}
+      - {label: "Tanggal Dibuat", name: "created_date", widget: "datetime"}
+      - {label: "Progress", name: "progress", widget: "number", min: 0, max: 100, default: 0}
+      - {label: "Catatan", name: "notes", widget: "text"}
+
+  - name: "pages"
+    label: "Halaman"
+    files:
+      - file: "content/pages/home.md"
+        label: "Beranda"
+        name: "home"
+        fields:
+          - {label: "Judul", name: "title", widget: "string"}
+          - {label: "Subjudul", name: "subtitle", widget: "string"}
+          - {label: "Deskripsi", name: "description", widget: "text"}
+          - {label: "Hero Image", name: "hero_image", widget: "image"}
+          - {label: "Stats", name: "stats", widget: "list", fields: [
+              {label: "Angka", name: "number", widget: "string"},
+              {label: "Label", name: "label", widget: "string"}
+            ]}
