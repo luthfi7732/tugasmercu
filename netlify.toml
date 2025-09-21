@@ -12,6 +12,12 @@
   to = "/admin/"
   status = 301
 
+# Redirect for config.yml
+[[redirects]]
+  from = "/admin/config.yml"
+  to = "/config.yml"
+  status = 200
+
 [build.environment]
   NODE_VERSION = "18"
 

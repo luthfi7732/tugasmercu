@@ -16,5 +16,17 @@ export default defineConfig({
       // Allow serving files from content directory
       allow: ['..']
     }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        // Ensure admin files are copied to dist
+        assetFileNames: (assetInfo) => {
+          return 'assets/[name]-[hash][extname]'
+        }
+      }
+    },
+    // Copy admin files to dist
+    copyPublicDir: true
   }
 })
