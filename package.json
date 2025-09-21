@@ -5,11 +5,11 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/update-content.js && vite build",
+    "build": "node tools/generate-content.js && vite build",
     "preview": "vite preview",
     "update-content": "node scripts/update-content.js",
-    "cms:dev": "node scripts/update-content.js && vite",
-    "cms:build": "node scripts/update-content.js && vite build"
+    "cms:dev": "node tools/generate-content.js && vite",
+    "cms:build": "node tools/generate-content.js && vite build"
   },
   "dependencies": {
     "@radix-ui/react-alert-dialog": "^1.0.5",
@@ -28,6 +28,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "framer-motion": "^10.16.4",
+    "gray-matter": "^4.0.3",
     "lucide-react": "^0.285.0",
     "postcss": "^8.4.31",
     "react": "^18.2.0",

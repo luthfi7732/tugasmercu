@@ -1,90 +1,135 @@
-# Manajemen Tugas Mercu Buana
+# Manajemen Tugas MercuBuana
 
-Website untuk membantu mahasiswa jurusan Manajemen semester 1 dalam melihat daftar tugas individu maupun kelompok.
+Portal terpadu untuk mahasiswa Manajemen semester 1 dalam mengelola tugas individu dan kelompok.
 
-## 🚀 Features
+## 🚀 Quick Start
 
-- **Home**: Menampilkan daftar tugas dengan informasi lengkap
-- **Kelompok**: Menampilkan daftar kelompok/grup untuk setiap mata kuliah
-- **Admin Panel**: Netlify CMS untuk mengelola konten
-
-## 🛠️ Setup Instructions
-
-### 1. Install Dependencies
-```bash
-npm install
-```
-
-### 2. Development
+### Development
 ```bash
 npm run dev
 ```
 
-### 3. Build for Production
+### Build with Content Generation
 ```bash
-npm run build
+npm run cms:build
 ```
 
-## 📝 Content Management
-
-### Admin Panel Setup
-
-1. **Enable Netlify Identity**:
-   - Go to your Netlify site dashboard
-   - Navigate to **Settings** > **Identity**
-   - Enable Identity service
-   - Set Registration preferences to "Open" or "Invite only"
-
-2. **Enable Git Gateway**:
-   - Go to **Settings** > **Build & deploy**
-   - Scroll to **Build settings**
-   - Click **Edit settings**
-   - Add this environment variable:
-     - Key: `GITHUB_TOKEN`
-     - Value: Your GitHub personal access token
-   - Save settings
-
-3. **Create GitHub Token**:
-   - Go to GitHub Settings > Developer settings > Personal access tokens
-   - Generate new token with `repo` scope
-   - Copy the token and add it to Netlify environment variables
-
-4. **Access Admin Panel**:
-   - Go to `https://your-site.netlify.app/admin/`
-   - Sign up/Login with Netlify Identity
-   - Start managing content!
-
-### Admin Panel Features
-
-- **📝 Tugas & Assignment**: Manage individual and group tasks
-- **👥 Kelompok Mata Kuliah**: Manage course groups
-- **Editorial Workflow**: Draft, review, and publish content
-- **Media Management**: Upload and manage images/files
+### Update Content Only
+```bash
+npm run update-content
+```
 
 ## 📁 Project Structure
 
 ```
-/
-├── src/
-│   ├── components/     # React components
-│   ├── pages/         # Page components
-│   └── lib/           # Utilities
+├── content/                 # Markdown content files
+│   ├── tasks/              # Task content
+│   ├── groups/             # Group content
+│   └── pages/              # Page content
 ├── public/
-│   └── admin/         # Netlify CMS admin interface
-├── content/
-│   ├── tasks/         # Task content files
-│   └── groups/        # Group content files
-└── dist/              # Built files (generated)
+│   ├── admin/              # Netlify CMS admin interface
+│   └── content/            # Generated JSON files
+├── src/                    # React components
+├── tools/                  # Build tools
+└── package.json
 ```
 
-## 🌐 Deployment
+## 🛠️ Content Management System (CMS)
 
-The site is automatically deployed to Netlify when changes are pushed to the master branch.
+### Admin Access
+- URL: `/admin/`
+- Username: Your Git provider account
+- Password: Your Git provider password
+
+### Content Types
+
+#### Tasks
+- Individual or Group assignments
+- Rich metadata (deadline, lecturer, room, etc.)
+- File attachments and references
+- Status tracking
+
+#### Groups
+- Study groups per course
+- Member management
+- Drive and WhatsApp links
+- Progress tracking
+
+#### Pages
+- Static pages with rich content
+- Hero sections and statistics
+- SEO optimization
+
+### Adding New Content
+
+1. **Via Admin Panel**:
+   - Go to `/admin/`
+   - Login with Git credentials
+   - Create new post in desired collection
+
+2. **Via Files**:
+   - Add markdown file to `content/[collection]/`
+   - Run `npm run update-content`
+   - Commit and push changes
+
+### Markdown Format
+
+```yaml
+---
+title: "Your Title"
+subject: "Course Name"
+date: "2024-01-15"
+deadline: "2024-01-22"
+lecturer: "Dr. Name"
+type: "Individual"
+status: "Open"
+priority: "High"
+---
+
+# Your Content Here
+
+Write your content in markdown format.
+```
+
+## 🔧 Build Process
+
+### Content Generation
+The build process automatically:
+1. Reads markdown files from `content/` folders
+2. Parses frontmatter and content
+3. Generates JSON files in `public/content/`
+4. Builds the React application
+
+### Deployment
+- **Netlify**: Auto-deploy on content changes
+- **Vercel**: Manual deploy with `npm run cms:build`
+- **GitHub Pages**: Use GitHub Actions
+
+## 📱 Features
+
+- ✅ Responsive design
+- ✅ Dark/Light theme support
+- ✅ Real-time content updates
+- ✅ SEO optimization
+- ✅ Progressive Web App
+- ✅ Offline support
+- ✅ Admin panel for content management
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create feature branch
+3. Make changes
+4. Test with `npm run cms:dev`
+5. Submit pull request
+
+## 📄 License
+
+MIT License - see LICENSE file for details.
 
 ## 📞 Support
 
-For issues with the admin panel:
-1. Check that Netlify Identity is enabled
-2. Verify GitHub token is set in environment variables
-3. Ensure config.yml is properly formatted
-4. Check browser console for JavaScript errors
+For support and questions:
+- Email: support@manajemantugas.com
+- Issues: GitHub Issues
+- Discussions: GitHub Discussions
