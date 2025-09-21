@@ -11,7 +11,7 @@ npm run dev
 
 ### Build with Content Generation
 ```bash
-npm run cms:build
+npm run build
 ```
 
 ### Update Content Only
@@ -27,7 +27,7 @@ npm run update-content
 │   ├── groups/             # Group content
 │   └── pages/              # Page content
 ├── public/
-│   ├── admin/              # Netlify CMS admin interface
+│   ├── admin/              # Admin interface
 │   └── content/            # Generated JSON files
 ├── src/                    # React components
 ├── tools/                  # Build tools
@@ -37,9 +37,9 @@ npm run update-content
 ## 🛠️ Content Management System (CMS)
 
 ### Admin Access
-- URL: `/admin/`
-- Username: Your Git provider account
-- Password: Your Git provider password
+- **Forestry.io**: `https://mercutugas.forestry.io` (Recommended)
+- **Direct URL**: `/admin/`
+- **Authentication**: GitHub credentials
 
 ### Content Types
 
@@ -51,9 +51,8 @@ npm run update-content
 
 #### Groups
 - Study groups per course
-- Member management
-- Drive and WhatsApp links
-- Progress tracking
+- Course information (lecturer, room, links)
+- Drive and WhatsApp group links
 
 #### Pages
 - Static pages with rich content
@@ -62,12 +61,17 @@ npm run update-content
 
 ### Adding New Content
 
-1. **Via Admin Panel**:
+1. **Via Forestry.io (Recommended)**:
+   - Go to `https://mercutugas.forestry.io`
+   - Login with GitHub
+   - Create/edit content with visual editor
+
+2. **Via Admin Panel**:
    - Go to `/admin/`
    - Login with Git credentials
    - Create new post in desired collection
 
-2. **Via Files**:
+3. **Via Files**:
    - Add markdown file to `content/[collection]/`
    - Run `npm run update-content`
    - Commit and push changes
@@ -77,19 +81,37 @@ npm run update-content
 ```yaml
 ---
 title: "Your Title"
-subject: "Course Name"
-date: "2024-01-15"
-deadline: "2024-01-22"
+course: "Course Name"
 lecturer: "Dr. Name"
-type: "Individual"
-status: "Open"
-priority: "High"
+room: "Room Number"
+drive_link: "https://drive.google.com/..."
+whatsapp_link: "https://chat.whatsapp.com/..."
 ---
 
 # Your Content Here
 
 Write your content in markdown format.
 ```
+
+## 🚀 Deployment
+
+### Option 1: Vercel (Recommended) ⭐
+- **URL**: `https://mercutugas.vercel.app`
+- **CMS**: Forestry.io (Free)
+- **Setup**: Auto-deploy from GitHub
+- **Cost**: 100% Free
+
+### Option 2: GitHub Pages
+- **URL**: `https://luthfiiiiiiau.github.io/mercutugas/`
+- **CMS**: Simple admin interface
+- **Setup**: GitHub Actions
+- **Cost**: 100% Free
+
+### Option 3: Netlify
+- **URL**: `https://mercutugas.netlify.app`
+- **CMS**: Netlify CMS
+- **Setup**: Auto-deploy from GitHub
+- **Cost**: Free tier available
 
 ## 🔧 Build Process
 
@@ -100,19 +122,19 @@ The build process automatically:
 3. Generates JSON files in `public/content/`
 4. Builds the React application
 
-### Deployment
-- **Netlify**: Auto-deploy on content changes
-- **Vercel**: Manual deploy with `npm run cms:build`
-- **GitHub Pages**: Use GitHub Actions
+### Auto-Deploy
+- **Vercel**: Auto-deploy on push to master
+- **Netlify**: Auto-deploy on push to master
+- **GitHub Pages**: Manual trigger via Actions
 
 ## 📱 Features
 
 - ✅ Responsive design
-- ✅ Dark/Light theme support
-- ✅ Real-time content updates
+- ✅ Modern UI/UX
+- ✅ Content Management System
 - ✅ SEO optimization
-- ✅ Progressive Web App
-- ✅ Offline support
+- ✅ Fast loading
+- ✅ Mobile friendly
 - ✅ Admin panel for content management
 
 ## 🤝 Contributing
@@ -120,7 +142,7 @@ The build process automatically:
 1. Fork the repository
 2. Create feature branch
 3. Make changes
-4. Test with `npm run cms:dev`
+4. Test with `npm run dev`
 5. Submit pull request
 
 ## 📄 License
@@ -130,6 +152,12 @@ MIT License - see LICENSE file for details.
 ## 📞 Support
 
 For support and questions:
-- Email: support@manajemantugas.com
-- Issues: GitHub Issues
-- Discussions: GitHub Discussions
+- **Issues**: GitHub Issues
+- **Discussions**: GitHub Discussions
+- **Email**: support@manajemantugas.com
+
+## 📚 Documentation
+
+- [Setup Guide](PANDUAN-MIGRASI-KE-VERCEL.md) - Migration to Vercel
+- [CMS Setup](PANDUAN-SETTING-NETLIFY-GITHUB.md) - CMS Configuration
+- [Quick Fix](QUICK-CHECKLIST.md) - Troubleshooting
